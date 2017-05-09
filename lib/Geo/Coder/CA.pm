@@ -12,7 +12,7 @@ use URI;
 
 =head1 NAME
 
-Geo::Coder::CA - Get data from http://geocoder.ca
+Geo::Coder::CA - provides a geocoding functionality using http:://geocoder.ca for both Canada and the US.
 
 =head1 VERSION
 
