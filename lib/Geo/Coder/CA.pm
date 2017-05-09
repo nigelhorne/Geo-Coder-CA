@@ -106,11 +106,11 @@ Accessor method to get and set UserAgent object used internally. You
 can call I<env_proxy> for example, to get the proxy information from
 environment variables:
 
-  $coder->ua->env_proxy();
+  $geocoder->ua()->env_proxy(1);
 
 You can also set your own User-Agent object:
 
-  $coder->ua(LWPx::ParanoidAgent->new());
+  $geocoder->ua(LWPx::ParanoidAgent->new());
 
 =cut
 
