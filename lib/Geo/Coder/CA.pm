@@ -12,15 +12,15 @@ use URI;
 
 =head1 NAME
 
-Geo::Coder::CA - provides a geocoding functionality using http:://geocoder.ca for both Canada and the US.
+Geo::Coder::CA - Provides a geocoding functionality using http:://geocoder.ca for both Canada and the US.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -124,10 +124,7 @@ sub ua {
 
 =head2 reverse_geocode
 
-NOT YET WRITTEN
-
     $location = $geocoder->reverse_geocode(latlng => '37.778907,-122.39732');
-    @location = $geocoder->reverse_geocode(latlng => '37.778907,-122.39732');
 
 Similar to geocode except it expects a latitude/longitude parameter.
 

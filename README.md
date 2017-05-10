@@ -1,10 +1,10 @@
 # Geo::Coder::CA
 
-Get data from http://geocoder.ca
+Provides a geocoding functionality using http:://geocoder.ca for both Canada and the US.
 
 # VERSION
 
-Version 0.01
+Version 0.02
 
 # SYNOPSIS
 
@@ -40,18 +40,15 @@ Accessor method to get and set UserAgent object used internally. You
 can call _env\_proxy_ for example, to get the proxy information from
 environment variables:
 
-    $coder->ua->env_proxy();
+    $geocoder->ua()->env_proxy(1);
 
 You can also set your own User-Agent object:
 
-    $coder->ua(LWPx::ParanoidAgent->new());
+    $geocoder->ua(LWPx::ParanoidAgent->new());
 
 ## reverse\_geocode
 
-NOT YET WRITTEN
-
     $location = $geocoder->reverse_geocode(latlng => '37.778907,-122.39732');
-    @location = $geocoder->reverse_geocode(latlng => '37.778907,-122.39732');
 
 Similar to geocode except it expects a latitude/longitude parameter.
 

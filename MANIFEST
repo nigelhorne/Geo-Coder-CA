@@ -1,4 +1,5 @@
 Changes
+ignore.txt
 lib/Geo/Coder/CA.pm
 LICENSE
 Makefile.PL
@@ -28,5 +29,6 @@ t/snippets.t
 t/spelling.t
 t/strict.t
 t/unused.t
+t/us.t
 t/used.t
 t/vars.t
