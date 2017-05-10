@@ -1,5 +1,8 @@
 Revision history for Geo-Coder-CA
 
+0.03
+	Removed redundant code
+
 0.02	Tue  9 May 21:54:02 EDT 2017
 	Added LWP::Protocol::https as a pre-requisite
 	Verify reverse_geocode works

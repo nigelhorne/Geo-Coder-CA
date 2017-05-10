@@ -92,7 +92,7 @@ sub geocode {
 	my $res = $self->{ua}->get($url);
 
 	if ($res->is_error) {
-		Carp::croak("Google Places API returned error: " . $res->status_line);
+		Carp::croak("geocode.ca API returned error: " . $res->status_line());
 	}
 
 	my $json = JSON->new->utf8;
@@ -147,16 +147,6 @@ sub reverse_geocode {
 
 	return $self->geocode(location => $latlng, reverse => 1);
 };
-
-# method below adapted from
-# http://gmaps-samples.googlecode.com/svn/trunk/urlsigning/urlsigner.pl
-sub _encode_urlsafe{
-	my ($self, $content) = @_;
-	$content =~ tr/\+/\-/;
-	$content =~ tr/\//\_/;
-
-	return $content;
-}
 
 =head1 AUTHOR
 
