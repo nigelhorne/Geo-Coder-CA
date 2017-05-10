@@ -1,5 +1,7 @@
 package Geo::Coder::CA;
 
+# See also https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html for the US for the future
+
 use strict;
 use warnings;
 
