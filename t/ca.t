@@ -23,6 +23,7 @@ CA: {
 		delta_ok($location->{longt}, -64.87);
 
 		my $address = $geocoder->reverse_geocode(latlng => '46.67,-64.87');
-		like($address->{'city'}, qr/Richibucto/i, 'test reverse');
+		like($address->{'city'}, qr/Richibucto/i, 'test reverse city');
+		# like($address->{'country'}, qr/Canada/i, 'test reverse country');
 	}
 }
