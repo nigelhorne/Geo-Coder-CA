@@ -159,6 +159,10 @@ it under the same terms as Perl itself.
 
 Lots of thanks to the folks at geocoder.ca.
 
+=head1 BUGS
+
+Should be called Geo::Coder::NA for North America.
+
 =head1 SEE ALSO
 
 L<Geo::Coder::GooglePlaces>, L<HTML::GoogleMaps::V3>
