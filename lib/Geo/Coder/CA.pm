@@ -84,8 +84,7 @@ sub geocode {
 
 	my $uri = URI->new("https://$self->{host}/some_location");
 	$location =~ s/\s/+/g;
-	my %query_parameters = ('locate' => $location);
-	$query_parameters{json} = 1;
+	my %query_parameters = ('locate' => $location, 'json' => 1);
 	$uri->query_form(%query_parameters);
 	my $url = $uri->as_string;
 
