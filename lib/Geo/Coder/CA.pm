@@ -10,6 +10,7 @@ use Encode;
 use JSON;
 use HTTP::Request;
 use LWP::UserAgent;
+use LWP::Protocol::https;
 use URI;
 
 =head1 NAME
