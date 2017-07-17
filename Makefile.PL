@@ -21,6 +21,7 @@ if($ENV{RELEASE_TESTING}) {
 my $test_requires = {
 	'Test::Most' => 0,
 	'Test::NoWarnings' => 0,
+	'Test::Number::Delta' => 0,
 };
 
 if($online_tests) {
