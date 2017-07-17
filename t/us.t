@@ -4,7 +4,8 @@ use warnings;
 use strict;
 use Test::LWP::UserAgent;
 use Test::Number::Delta within => 1e-2;
-use Test::Most tests => 9;
+use Test::Most tests => 10;
+use Test::Carp;
 
 BEGIN {
 	use_ok('Geo::Coder::CA');
@@ -12,7 +13,7 @@ BEGIN {
 
 US: {
 	SKIP: {
-		skip 'Test requires Internet access', 8 unless(-e 't/online.enabled');
+		skip 'Test requires Internet access', 9 unless(-e 't/online.enabled');
 
 		my $geocoder = new_ok('Geo::Coder::CA');
 		my $location = $geocoder->geocode('1600 Pennsylvania Avenue NW, Washington DC');
@@ -27,13 +28,13 @@ US: {
 		is($address->{'prov'}, 'DC', 'test reverse');
 
 		my $ua = new_ok('Test::LWP::UserAgent');
-		$ua->map_response('geocode.ca', new_ok('HTTP::Response' => [ '500' ]));
+		$ua->map_response('geocoder.ca', new_ok('HTTP::Response' => [ '500' ]));
 
 		$geocoder->ua($ua);
-		eval {
-			does_carp_that_matches(sub { 
-				$location = $geocoder->geocode(location => '1600 Pennsylvania Avenue NW, Washington DC, USA');
-			}, qr/^geocode.ca API returned error: 500/);
+
+		sub f {
+			$location = $geocoder->geocode(location => '1600 Pennsylvania Avenue NW, Washington DC, USA');
 		};
+		does_croak_that_matches(\&f, qr/^geocoder.ca API returned error: 500/);
 	}
 }
