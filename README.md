@@ -1,3 +1,8 @@
+[![Linux Build Status](https://travis-ci.org/nigelhorne/Geo-Coder-CA.svg?branch=master)](https://travis-ci.org/nigelhorne/Geo-Coder-CA)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/xy5gf1mumgp3mg94?svg=true)](https://ci.appveyor.com/project/nigelhorne/geo-coder-ca)
+[![Coverage Status](https://coveralls.io/repos/github/nigelhorne/Geo-Coder-CA/badge.svg?branch=master)](https://coveralls.io/github/nigelhorne/Geo-Coder-CA?branch=master)
+[![Dependency Status](https://dependencyci.com/github/nigelhorne/Geo-Coder-CA/badge)](https://dependencyci.com/github/nigelhorne/Geo-Coder-CA)
+
 # Geo::Coder::CA
 
 Provides a geocoding functionality using http:://geocoder.ca for both Canada and the US.
