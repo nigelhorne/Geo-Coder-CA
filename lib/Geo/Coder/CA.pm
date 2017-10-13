@@ -87,16 +87,35 @@ sub geocode {
 	$location =~ s/\s/+/g;
 	my %query_parameters = ('locate' => $location, 'json' => 1);
 	$uri->query_form(%query_parameters);
-	my $url = $uri->as_string;
+	my $url = $uri->as_string();
 
 	my $res = $self->{ua}->get($url);
 
-	if ($res->is_error) {
+	if($res->is_error()) {
 		Carp::croak("geocoder.ca API returned error: " . $res->status_line());
+		return;
 	}
 
-	my $json = JSON->new->utf8;
-	return $json->decode($res->content);	# No support for list context, yet
+	my $json = JSON->new->utf8();
+	my $rc = $json->decode($res->content());
+	if($rc && $rc->{'latt'} && $rc->{'longt'}) {
+		return $rc;	# No support for list context, yet
+	}
+
+	if($location =~ /^(\w+),\+*(\w+),\+*(USA|US|United States)$/i) {
+		$query_parameters{'locate'} = "$1 County, $2, $3";
+		$uri->query_form(%query_parameters);
+		$url = $uri->as_string();
+
+		$res = $self->{ua}->get($url);
+
+		if($res->is_error()) {
+			Carp::croak("geocoder.ca API returned error: " . $res->status_line());
+			return;
+		}
+		return $json->decode($res->content());
+	}
+	return;
 
 	# my @results = @{ $data || [] };
 	# wantarray ? @results : $results[0];
