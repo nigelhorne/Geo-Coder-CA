@@ -98,6 +98,11 @@ sub geocode {
 
 	my $json = JSON->new->utf8();
 	my $rc = $json->decode($res->content());
+	if($rc->{'error'}) {
+		# Sorry - you lose the error code, but HTML::GoogleMaps::V3 relies on this
+		# TODO - send patch to the H:G:V3 author
+		return;
+	}
 	if($rc && $rc->{'latt'} && $rc->{'longt'}) {
 		return $rc;	# No support for list context, yet
 	}

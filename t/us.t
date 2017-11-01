@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Test::LWP::UserAgent;
 use Test::Number::Delta within => 1e-2;
-use Test::Most tests => 13;
+use Test::Most tests => 14;
 use Test::Carp;
 
 BEGIN {
@@ -13,7 +13,7 @@ BEGIN {
 
 US: {
 	SKIP: {
-		skip 'Test requires Internet access', 12 unless(-e 't/online.enabled');
+		skip 'Test requires Internet access', 13 unless(-e 't/online.enabled');
 
 		my $geocoder = new_ok('Geo::Coder::CA');
 		my $location = $geocoder->geocode('1600 Pennsylvania Avenue NW, Washington DC');
@@ -33,6 +33,9 @@ US: {
 		# ok(defined($location));
 		# delta_ok($location->{latt}, 39.04);
 		# delta_ok($location->{longt}, -86.96);
+
+		$location = $geocoder->geocode(location => 'XYZZY');
+		ok(!defined($location));
 
 		my $address = $geocoder->reverse_geocode('38.9,-77.04');
 		is($address->{'prov'}, 'DC', 'test reverse');
