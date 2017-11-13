@@ -3,6 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/nigelhorne/Geo-Coder-CA/badge.svg?branch=master)](https://coveralls.io/github/nigelhorne/Geo-Coder-CA?branch=master)
 [![Dependency Status](https://dependencyci.com/github/nigelhorne/Geo-Coder-CA/badge)](https://dependencyci.com/github/nigelhorne/Geo-Coder-CA)
 [![CPAN](https://img.shields.io/cpan/v/Geo-Coder-CA.svg)](http://search.cpan.org/~nhorne/Geo-Coder-CA/)
+[![Kritika Analysis Status](https://kritika.io/users/nigelhorne/repos/8113837670534727/heads/master/status.svg)](https://kritika.io/users/nigelhorne/repos/8113837670534727/heads/master/)
 
 # Geo::Coder::CA
 
