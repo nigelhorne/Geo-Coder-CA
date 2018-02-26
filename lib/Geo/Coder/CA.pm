@@ -136,7 +136,9 @@ environment variables:
 
 You can also set your own User-Agent object:
 
-  $geocoder->ua(LWP::UserAgent::Throttled->new());
+  my $ua = LWP::UserAgent::Throttled->new();
+  $ua->throttle('geocoder.ca' => 1);
+  $geocoder->ua($ua);
 
 =cut
 
