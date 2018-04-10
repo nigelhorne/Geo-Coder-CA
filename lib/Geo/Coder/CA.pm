@@ -92,35 +92,35 @@ sub geocode {
 	my $res = $self->{ua}->get($url);
 
 	if($res->is_error()) {
-		Carp::croak("geocoder.ca API returned error: " . $res->status_line());
+		Carp::croak("$url API returned error: " . $res->status_line());
 		return;
 	}
 
 	my $json = JSON->new->utf8();
-	my $rc = $json->decode($res->content());
-	if($rc->{'error'}) {
-		# Sorry - you lose the error code, but HTML::GoogleMaps::V3 relies on this
-		# TODO - send patch to the H:G:V3 author
-		return;
-	}
-	if($rc && $rc->{'latt'} && $rc->{'longt'}) {
-		return $rc;	# No support for list context, yet
-	}
+	if(my $rc = $json->decode($res->content())) {
+		if($rc->{'error'}) {
+			# Sorry - you lose the error code, but HTML::GoogleMaps::V3 relies on this
+			# TODO - send patch to the H:G:V3 author
+			return;
+		}
+		if(defined($rc->{'latt'}) && defined($rc->{'longt'})) {
+			return $rc;	# No support for list context, yet
+		}
 
-	# if($location =~ /^(\w+),\+*(\w+),\+*(USA|US|United States)$/i) {
-		# $query_parameters{'locate'} = "$1 County, $2, $3";
-		# $uri->query_form(%query_parameters);
-		# $url = $uri->as_string();
-# 
-		# $res = $self->{ua}->get($url);
-# 
-		# if($res->is_error()) {
-			# Carp::croak("geocoder.ca API returned error: " . $res->status_line());
-			# return;
+		# if($location =~ /^(\w+),\+*(\w+),\+*(USA|US|United States)$/i) {
+			# $query_parameters{'locate'} = "$1 County, $2, $3";
+			# $uri->query_form(%query_parameters);
+			# $url = $uri->as_string();
+	# 
+			# $res = $self->{ua}->get($url);
+	# 
+			# if($res->is_error()) {
+				# Carp::croak("geocoder.ca API returned error: " . $res->status_line());
+				# return;
+			# }
+			# return $json->decode($res->content());
 		# }
-		# return $json->decode($res->content());
-	# }
-	return;
+	}
 
 	# my @results = @{ $data || [] };
 	# wantarray ? @results : $results[0];

@@ -48,6 +48,6 @@ US: {
 		sub f {
 			$location = $geocoder->geocode(location => '1600 Pennsylvania Avenue NW, Washington DC, USA');
 		}
-		does_croak_that_matches(\&f, qr/^geocoder.ca API returned error: 500/);
+		does_croak_that_matches(\&f, qr/ API returned error: 500/);
 	}
 }
