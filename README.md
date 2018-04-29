@@ -11,7 +11,7 @@ Provides a geocoding functionality using http:://geocoder.ca for both Canada and
 
 # VERSION
 
-Version 0.06
+Version 0.07
 
 # SYNOPSIS
 
@@ -51,7 +51,9 @@ environment variables:
 
 You can also set your own User-Agent object:
 
-    $geocoder->ua(LWP::UserAgent::Throttled->new());
+    my $ua = LWP::UserAgent::Throttled->new();
+    $ua->throttle('geocoder.ca' => 1);
+    $geocoder->ua($ua);
 
 ## reverse\_geocode
 

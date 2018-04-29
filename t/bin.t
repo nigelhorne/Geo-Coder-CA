@@ -13,7 +13,7 @@ BIN: {
 
 		script_runs(['bin/ca']);
 
-		ok(script_stdout_like(qr/\-77\.03/, 'test 1'));
+		ok(script_stdout_like(qr/\-76\.90/, 'test 1'));
 		ok(script_stderr_is('', 'no error output'));
 	}
 }
