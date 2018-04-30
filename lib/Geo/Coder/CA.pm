@@ -77,7 +77,7 @@ sub geocode {
 	}
 
 	my $location = $param{location}
-		or Carp::croak("Usage: geocode(location => \$location)");
+		or Carp::croak('Usage: geocode(location => $location)');
 
 	if (Encode::is_utf8($location)) {
 		$location = Encode::encode_utf8($location);
@@ -111,9 +111,9 @@ sub geocode {
 			# $query_parameters{'locate'} = "$1 County, $2, $3";
 			# $uri->query_form(%query_parameters);
 			# $url = $uri->as_string();
-	# 
+			# 
 			# $res = $self->{ua}->get($url);
-	# 
+			# 
 			# if($res->is_error()) {
 				# Carp::croak("geocoder.ca API returned error: " . $res->status_line());
 				# return;
@@ -169,7 +169,7 @@ sub reverse_geocode {
 	}
 
 	my $latlng = $param{latlng}
-		or Carp::croak("Usage: reverse_geocode(latlng => \$latlng)");
+		or Carp::croak('Usage: reverse_geocode(latlng => $latlng)');
 
 	return $self->geocode(location => $latlng, reverse => 1);
 }
@@ -192,7 +192,7 @@ sub run {
 	my $location = join(' ', @_);
 
 	my @rc = $class->new()->geocode($location);
-	
+
 	die "$0: geocoding failed" unless(scalar(@rc));
 
 	print Data::Dumper->new([\@rc])->Dump();
