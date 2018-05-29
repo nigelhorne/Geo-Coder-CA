@@ -76,14 +76,14 @@ WriteMakefile(
 sub are_online
 {
 	my $s = IO::Socket::INET->new(
-		PeerAddr => 'geocode.ca:443',
+		PeerAddr => 'geocoder.ca:443',
 		Timeout => 10
 	);
 	if($s) {
 		print <<EOF;
 
 You appear to be directly connected to the Internet.  I have some tests
-that try to query geocode.ca.
+that try to query geocoder.ca.
 
 EOF
 		close($s);

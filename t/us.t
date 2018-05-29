@@ -17,12 +17,12 @@ US: {
 
 		my $geocoder = new_ok('Geo::Coder::CA');
 		my $location = $geocoder->geocode('1600 Pennsylvania Avenue NW, Washington DC');
-		delta_ok($location->{latt}, 38.88);
-		delta_ok($location->{longt}, -76.90);
+		delta_ok($location->{latt}, 38.90);
+		delta_ok($location->{longt}, -77.04);
 
 		$location = $geocoder->geocode(location => '1600 Pennsylvania Avenue NW, Washington DC, USA');
-		delta_ok($location->{latt}, 38.88);
-		delta_ok($location->{longt}, -76.90);
+		delta_ok($location->{latt}, 38.90);
+		delta_ok($location->{longt}, -77.04);
 
 		$location = $geocoder->geocode(location => 'Greene County, Indiana, USA');
 		ok(defined($location));
