@@ -11,7 +11,10 @@ BEGIN {
 
 CA: {
 	SKIP: {
-		skip 'Test requires Internet access', 6 unless(-e 't/online.enabled');
+		if(!-e 't/online.enabled') {
+			diag('Online tests disabled');
+			skip 'Test requires Internet access', 6;
+		}
 
 		my $geocoder = new_ok('Geo::Coder::CA');
 		my $location = $geocoder->geocode('9235 Main St, Richibucto, New Brunswick, Canada');

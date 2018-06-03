@@ -13,7 +13,10 @@ BEGIN {
 
 US: {
 	SKIP: {
-		skip 'Test requires Internet access', 13 unless(-e 't/online.enabled');
+		if(!-e 't/online.enabled') {
+			diag('Online tests disabled');
+			skip 'Test requires Internet access', 13;
+		}
 
 		my $geocoder = new_ok('Geo::Coder::CA');
 		my $location = $geocoder->geocode('1600 Pennsylvania Avenue NW, Washington DC');
