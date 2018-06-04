@@ -14,8 +14,13 @@ BEGIN {
 US: {
 	SKIP: {
 		if(!-e 't/online.enabled') {
-			diag('Online tests disabled');
-			skip 'Test requires Internet access', 13;
+			if(!$ENV{RELEASE_TESTING}) {
+				diag('Author tests not required for installation');
+				skip('Author tests not required for installation', 13);
+			} else {
+				diag('Test requires Internet access');
+				skip('Test requires Internet access', 13);
+			}
 		}
 
 		my $geocoder = new_ok('Geo::Coder::CA');
