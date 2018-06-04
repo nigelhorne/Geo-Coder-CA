@@ -111,9 +111,9 @@ sub geocode {
 			# $query_parameters{'locate'} = "$1 County, $2, $3";
 			# $uri->query_form(%query_parameters);
 			# $url = $uri->as_string();
-			# 
+			#
 			# $res = $self->{ua}->get($url);
-			# 
+			#
 			# if($res->is_error()) {
 				# Carp::croak("geocoder.ca API returned error: " . $res->status_line());
 				# return;
