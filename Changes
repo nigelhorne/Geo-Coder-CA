@@ -2,6 +2,7 @@ Revision history for Geo-Coder-CA
 
 0.09
 	Remove provides statement from Makefile.PL
+	Only run live tests when RELEASE_TESTING is set
 
 0.08	Tue May  8 15:32:03 EDT 2018
 	Fixed RT#125249
