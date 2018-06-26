@@ -7,18 +7,18 @@
 
 # Geo::Coder::CA
 
-Provides a geocoding functionality using http:://geocoder.ca for both Canada and the US.
+Provides a Geo-Coding functionality using http:://geocoder.ca for both Canada and the US.
 
 # VERSION
 
-Version 0.08
+Version 0.09
 
 # SYNOPSIS
 
       use Geo::Coder::CA;
 
-      my $geocoder = Geo::Coder::CA->new();
-      my $location = $geocoder->geocode(location => '9235 Main St, Richibucto, New Brunswick, Canada');
+      my $geo_coder = Geo::Coder::CA->new();
+      my $location = $geo_coder->geocode(location => '9235 Main St, Richibucto, New Brunswick, Canada');
 
 # DESCRIPTION
 
@@ -28,15 +28,15 @@ Geo::Coder::CA provides an interface to geocoder.ca.  Geo::Coder::Canada no long
 
 ## new
 
-    $geocoder = Geo::Coder::CA->new();
+    $geo_coder = Geo::Coder::CA->new();
     my $ua = LWP::UserAgent->new();
     $ua->env_proxy(1);
-    $geocoder = Geo::Coder::CA->new(ua => $ua);
+    $geo_coder = Geo::Coder::CA->new(ua => $ua);
 
 ## geocode
 
-    $location = $geocoder->geocode(location => $location);
-    # @location = $geocoder->geocode(location => $location);
+    $location = $geo_coder->geocode(location => $location);
+    # @location = $geo_coder->geocode(location => $location);
 
     print 'Latitude: ', $location->{'latt'}, "\n";
     print 'Longitude: ', $location->{'longt'}, "\n";
@@ -47,17 +47,17 @@ Accessor method to get and set UserAgent object used internally. You
 can call _env\_proxy_ for example, to get the proxy information from
 environment variables:
 
-    $geocoder->ua()->env_proxy(1);
+    $geo_coder->ua()->env_proxy(1);
 
 You can also set your own User-Agent object:
 
     my $ua = LWP::UserAgent::Throttled->new();
     $ua->throttle('geocoder.ca' => 1);
-    $geocoder->ua($ua);
+    $geo_coder->ua($ua);
 
 ## reverse\_geocode
 
-    $location = $geocoder->reverse_geocode(latlng => '37.778907,-122.39732');
+    $location = $geo_coder->reverse_geocode(latlng => '37.778907,-122.39732');
 
 Similar to geocode except it expects a latitude/longitude parameter.
 
@@ -88,6 +88,6 @@ Should be called Geo::Coder::NA for North America.
 
 # LICENSE AND COPYRIGHT
 
-Copyright 2017 Nigel Horne.
+Copyright 2017-2018 Nigel Horne.
 
 This program is released under the following licence: GPL2
