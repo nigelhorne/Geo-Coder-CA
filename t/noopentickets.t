@@ -19,7 +19,7 @@ if($ENV{AUTHOR_TESTING}) {
 		}
 		ok(scalar(@tickets) == 0);
 	} else {
-		plan(skip_all => "Can't connect to rc.cpan.org");
+		plan(skip_all => "Can't connect to rt.cpan.org");
 	}
 } else {
 	plan(skip_all => 'Author tests not required for installation');
