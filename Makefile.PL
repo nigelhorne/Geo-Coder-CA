@@ -6,7 +6,7 @@ use IO::Socket::INET;
 
 my $online_tests;
 
-if($ENV{RELEASE_TESTING}) {
+if($ENV{AUTHOR_TESTING}) {
 	$online_tests = are_online();
 } elsif($ENV{AUTOMATED_TESTING} || $ENV{NO_NETWORK_TESTING} || (!-t STDIN)) {
 	$online_tests = 0;
@@ -14,7 +14,7 @@ if($ENV{RELEASE_TESTING}) {
 	Getopt::Long::GetOptions('online-tests!' => \$online_tests);
 
 	if(!defined($online_tests)) {
-		if($ENV{RELEASE_TESTING}) {
+		if($ENV{AUTHOR_TESTING}) {
 			$online_tests = are_online();
 		} else {
 			$online_tests = 0;
