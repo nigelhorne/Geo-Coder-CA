@@ -31,6 +31,7 @@ my $test_requires = {
 	'Test::Carp' => 0,
 	'Test::Script' => 0,
 	'Test::LWP::UserAgent' => 0
+	'WWW::RT::CPAN' => 0
 };
 
 if($online_tests) {
