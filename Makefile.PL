@@ -30,7 +30,7 @@ my $test_requires = {
 	'Test::Number::Delta' => 0,
 	'Test::Carp' => 0,
 	'Test::Script' => 0,
-	'Test::LWP::UserAgent' => 0
+	'Test::LWP::UserAgent' => 0,
 	'WWW::RT::CPAN' => 0
 };
 
