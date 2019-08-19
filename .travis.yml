@@ -22,7 +22,7 @@ sudo: false
 before_install:
   # - sudo apt-get update -q
   # - sudo apt-get install sqlite3 libdbi-perl libdbd-sqlite3-perl
-  - cpanm -n Devel::Cover::Report::Coveralls Test::Script Test::Pod::Spelling::CommonMistakes Test::Portability::Files Test::Taint Test::Carp LWP::Protocol::https JSON::XS IPC::System::Simple
+  - cpanm -n Devel::Cover::Report::Coveralls Test::Pod::Spelling::CommonMistakes Test::Portability::Files Test::Taint Test::Carp LWP::Protocol::https JSON::XS
 
 install:
   - cpanm -v --installdeps --notest .
