@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 use Test::Number::Delta within => 1e-2;
-use Test::Most tests => 14;
+use Test::Most tests => 15;
 use Test::Carp;
 
 BEGIN {

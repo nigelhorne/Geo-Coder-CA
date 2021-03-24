@@ -74,14 +74,18 @@ sub geocode {
 		%param = %{$_[0]};
 	} elsif(ref($_[0])) {
 		Carp::croak('Usage: geocode(location => $location)');
+		return;
 	} elsif(@_ % 2 == 0) {
 		%param = @_;
 	} else {
 		$param{location} = shift;
 	}
 
-	my $location = $param{location}
-		or Carp::croak('Usage: geocode(location => $location)');
+	my $location = $param{location};
+	if(!defined($location)) {
+		Carp::croak('Usage: geocode(location => $location)');
+		return;
+	}
 
 	if (Encode::is_utf8($location)) {
 		$location = Encode::encode_utf8($location);
