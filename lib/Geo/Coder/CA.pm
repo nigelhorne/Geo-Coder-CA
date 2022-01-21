@@ -50,7 +50,17 @@ Geo::Coder::CA provides an interface to geocoder.ca.  Geo::Coder::Canada no long
 sub new {
 	my($class, %param) = @_;
 
-	my $ua = delete $param{ua} || LWP::UserAgent->new(agent => __PACKAGE__ . "/$VERSION");
+	# Use Geo::Coder:CA->new(), not Geo::Coder:CA::new()
+	if(!defined($class)) {
+		carp(__PACKAGE__, ' use ->new() not ::new() to instantiate');
+		return;
+	}
+
+	my $ua = delete $param{ua};
+	if(!defined($ua)) {
+		$ua = LWP::UserAgent->new(agent => __PACKAGE__ . "/$VERSION");
+		$ua->default_header(accept_encoding => 'gzip,deflate');
+	}
 	my $host = delete $param{host} || 'geocoder.ca';
 
 	return bless { ua => $ua, host => $host }, $class;
@@ -103,9 +113,10 @@ sub geocode {
 		Carp::croak("$url API returned error: " . $res->status_line());
 		return;
 	}
+	# $res->content_type('text/plain');	# May be needed to decode correctly
 
 	my $json = JSON->new->utf8();
-	if(my $rc = $json->decode($res->content())) {
+	if(my $rc = $json->decode($res->decoded_content())) {
 		if($rc->{'error'}) {
 			# Sorry - you lose the error code, but HTML::GoogleMaps::V3 relies on this
 			# TODO - send patch to the H:G:V3 author
@@ -227,7 +238,7 @@ L<Geo::Coder::GooglePlaces>, L<HTML::GoogleMaps::V3>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2017-2018 Nigel Horne.
+Copyright 2017-2022 Nigel Horne.
 
 This program is released under the following licence: GPL2
 
