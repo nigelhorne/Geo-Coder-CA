@@ -7,4 +7,4 @@ use Test::Most tests => 2;
 use Geo::Coder::CA;
 
 isa_ok(Geo::Coder::CA->new(), 'Geo::Coder::CA', 'Creating Geo::Coder::CA object');
-ok(!defined(Geo::Coder::CA::new()));
+isa_ok(Geo::Coder::CA::new(), 'Geo::Coder::CA', 'Creating Geo::Coder::CA object');

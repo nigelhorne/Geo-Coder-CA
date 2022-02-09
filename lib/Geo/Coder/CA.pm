@@ -50,10 +50,9 @@ Geo::Coder::CA provides an interface to geocoder.ca.  Geo::Coder::Canada no long
 sub new {
 	my($class, %param) = @_;
 
-	# Use Geo::Coder:CA->new(), not Geo::Coder:CA::new()
 	if(!defined($class)) {
-		carp(__PACKAGE__, ' use ->new() not ::new() to instantiate');
-		return;
+		# Geo::Coder::CA::new() used rather than Geo::Coder::CA->new()
+		$class = __PACKAGE__;
 	}
 
 	my $ua = delete $param{ua};
