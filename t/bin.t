@@ -3,19 +3,19 @@
 use strict;
 
 use Test::Most tests => 6;
-use Test::Script;
+use Test::Script 1.12;
 
 script_compiles('bin/ca');
 
 BIN: {
 	SKIP: {
 		if(!-e 't/online.enabled') {
-			if(!$ENV{RELEASE_TESTING}) {
+			if(!$ENV{'AUTHOR_TESTING'}) {
 				diag('Author tests not required for installation');
 				skip('Author tests not required for installation', 5);
 			} else {
 				diag('Test requires Internet access');
-				skip 'Test requires Internet access', 5;
+				skip('Test requires Internet access', 5);
 			}
 		}
 
