@@ -55,12 +55,12 @@ sub new {
 		$class = __PACKAGE__;
 	}
 
-	my $ua = delete $param{ua};
+	my $ua = $param{ua};
 	if(!defined($ua)) {
 		$ua = LWP::UserAgent->new(agent => __PACKAGE__ . "/$VERSION");
 		$ua->default_header(accept_encoding => 'gzip,deflate');
 	}
-	my $host = delete $param{host} || 'geocoder.ca';
+	my $host = $param{host} || 'geocoder.ca';
 
 	return bless { ua => $ua, host => $host }, $class;
 }
