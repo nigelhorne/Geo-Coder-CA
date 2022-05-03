@@ -211,9 +211,11 @@ sub run {
 
 	my @rc = $class->new()->geocode($location);
 
-	die "$0: geo-coding failed" unless(scalar(@rc));
-
-	print Data::Dumper->new([\@rc])->Dump();
+	if(scalar(@rc)) {
+		print Data::Dumper->new([\@rc])->Dump();
+	} else {
+		die "$0: geo-coding failed";
+	}
 }
 
 =head1 AUTHOR

@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 use Test::Number::Delta within => 1e-2;
-use Test::Most tests => 16;
+use Test::Most tests => 19;
 use Test::Carp;
 
 BEGIN {
@@ -16,7 +16,7 @@ US: {
 			use_ok('Test::LWP::UserAgent');
 		} else {
 			diag('On-line tests have been disabled');
-			skip('On-line tests have been disabled', 15);
+			skip('On-line tests have been disabled', 18);
 		}
 
 		my $geocoder = new_ok('Geo::Coder::CA');
@@ -52,6 +52,15 @@ US: {
 				fail('Counties Long');
 			}
 		}
+
+		$location = $geocoder->geocode('');
+		ok(!defined($location));
+
+		$location = $geocoder->geocode(location => '');
+		ok(!defined($location));
+
+		$location = $geocoder->geocode({ location => '' });
+		ok(!defined($location));
 
 		$location = $geocoder->geocode(location => 'XYZZY');
 		ok(!defined($location));
