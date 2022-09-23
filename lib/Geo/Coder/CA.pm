@@ -7,7 +7,7 @@ use warnings;
 
 use Carp;
 use Encode;
-use JSON;
+use JSON::MaybeXS;
 use HTTP::Request;
 use LWP::UserAgent;
 use LWP::Protocol::https;
