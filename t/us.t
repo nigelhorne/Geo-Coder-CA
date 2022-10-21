@@ -24,6 +24,8 @@ US: {
 		delta_ok($location->{latt}, 38.90);
 		delta_ok($location->{longt}, -77.04);
 
+		sleep(1);	# Don't overload the server
+
 		$location = $geocoder->geocode(location => '1600 Pennsylvania Avenue NW, Washington DC, USA');
 		delta_ok($location->{latt}, 38.90);
 		delta_ok($location->{longt}, -77.04);
@@ -31,6 +33,8 @@ US: {
 		TODO: {
 			# Test counties
 			local $TODO = "geocoder.ca doesn't support counties";
+
+			sleep(1);	# Don't overload the server
 
 			if($location = $geocoder->geocode(location => 'Greene County, Indiana, USA')) {
 				# delta_ok($location->{latt}, 39.04);
@@ -41,6 +45,8 @@ US: {
 				fail('Counties Lat');
 				fail('Counties Long');
 			}
+
+			sleep(1);	# Don't overload the server
 
 			if($location = $geocoder->geocode(location => 'Greene, Indiana, USA')) {
 				# delta_ok($location->{latt}, 39.04);

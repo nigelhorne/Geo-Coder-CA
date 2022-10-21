@@ -19,11 +19,11 @@ Geo::Coder::CA - Provides a Geo-Coding functionality using http:://geocoder.ca f
 
 =head1 VERSION
 
-Version 0.12
+Version 0.13
 
 =cut
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 =head1 SYNOPSIS
 
@@ -109,12 +109,12 @@ sub geocode {
 	my $res = $self->{ua}->get($url);
 
 	if($res->is_error()) {
-		Carp::croak("$url API returned error: " . $res->status_line());
+		Carp::croak("$url API returned error: ", $res->status_line());
 		return;
 	}
 	# $res->content_type('text/plain');	# May be needed to decode correctly
 
-	my $json = JSON->new->utf8();
+	my $json = JSON::MaybeXS->new()->utf8();
 	if(my $rc = $json->decode($res->decoded_content())) {
 		if($rc->{'error'}) {
 			# Sorry - you lose the error code, but HTML::GoogleMaps::V3 relies on this
