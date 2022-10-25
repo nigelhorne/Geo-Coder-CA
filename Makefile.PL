@@ -92,7 +92,7 @@ sub are_online
 	if($s) {
 		if($ENV{'PERL_MM_USE_DEFAULT'} || $ENV{'AUTOMATED_TESTING'}) {
 			close($s);
-			return 1;
+			return 0;	# Don't overload the server by default
 		}
 
 		print <<EOF;
