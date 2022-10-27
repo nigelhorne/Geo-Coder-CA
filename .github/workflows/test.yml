@@ -34,7 +34,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cpanm -iqn --skip-satisfied File::Spec ExtUtils::MakeMaker
-          cpanm -iqn --skip-satisfied Test::Portability::Files Test::Pod::Coverage JSON::XS
+          cpanm -iqn --skip-satisfied Test::Portability::Files Test::Pod::Coverage JSON::MaybeXS
           cpanm -iqn --skip-satisfied --installdeps --notest .
       - name: Run Tests
         run: prove -l -b t
