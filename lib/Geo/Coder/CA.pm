@@ -34,7 +34,8 @@ our $VERSION = '0.13';
 
 =head1 DESCRIPTION
 
-Geo::Coder::CA provides an interface to geocoder.ca.  Geo::Coder::Canada no longer seems to work.
+Geo::Coder::CA provides an interface to geocoder.ca.
+L<Geo::Coder::Canada> no longer seems to work.
 
 =head1 METHODS
 
@@ -48,19 +49,22 @@ Geo::Coder::CA provides an interface to geocoder.ca.  Geo::Coder::Canada no long
 =cut
 
 sub new {
-	my($class, %param) = @_;
+	my($class, %args) = @_;
 
 	if(!defined($class)) {
 		# Geo::Coder::CA::new() used rather than Geo::Coder::CA->new()
 		$class = __PACKAGE__;
+	} elsif(ref($class)) {
+		# clone the given object
+		return bless { %{$class}, %args }, ref($class);
 	}
 
-	my $ua = $param{ua};
+	my $ua = $args{ua};
 	if(!defined($ua)) {
 		$ua = LWP::UserAgent->new(agent => __PACKAGE__ . "/$VERSION");
 		$ua->default_header(accept_encoding => 'gzip,deflate');
 	}
-	my $host = $param{host} || 'geocoder.ca';
+	my $host = $args{host} || 'geocoder.ca';
 
 	return bless { ua => $ua, host => $host }, $class;
 }
@@ -220,7 +224,7 @@ sub run {
 
 =head1 AUTHOR
 
-Nigel Horne <njh@bandsman.co.uk>
+Nigel Horne, C<< <njh@bandsman.co.uk> >>
 
 Based on L<Geo::Coder::Googleplaces>.
 
