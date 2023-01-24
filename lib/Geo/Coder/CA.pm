@@ -15,7 +15,7 @@ use URI;
 
 =head1 NAME
 
-Geo::Coder::CA - Provides a Geo-Coding functionality using http:://geocoder.ca for both Canada and the US.
+Geo::Coder::CA - Provides a Geo-Coding functionality using L<https:://geocoder.ca> for both Canada and the US.
 
 =head1 VERSION
 
@@ -243,7 +243,7 @@ L<Geo::Coder::GooglePlaces>, L<HTML::GoogleMaps::V3>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2017-2022 Nigel Horne.
+Copyright 2017-2023 Nigel Horne.
 
 This program is released under the following licence: GPL2
 

@@ -2,6 +2,7 @@ Revision history for Geo-Coder-CA
 
 0.14
 	Calling new on an object now returns a clone rather than setting the defaults in the new object
+	geocoder.ca is now HTTPS
 
 0.13	Fri Oct 21 10:04:43 EDT 2022
 	Fix RT#141487 (SREZIC)
