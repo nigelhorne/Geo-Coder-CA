@@ -113,7 +113,7 @@ sub geocode {
 	my $res = $self->{ua}->get($url);
 
 	if($res->is_error()) {
-		Carp::croak("$url API returned error: ", $res->status_line());
+		Carp::carp("$url API returned error: ", $res->status_line());
 		return;
 	}
 	# $res->content_type('text/plain');	# May be needed to decode correctly
