@@ -8,14 +8,12 @@ use warnings;
 use Carp;
 use Encode;
 use JSON::MaybeXS;
-use HTTP::Request;
 use LWP::UserAgent;
-use LWP::Protocol::https;
 use URI;
 
 =head1 NAME
 
-Geo::Coder::CA - Provides a Geo-Coding functionality using L<https:://geocoder.ca> for both Canada and the US.
+Geo::Coder::CA - Provides a Geo-Coding functionality using L<https://geocoder.ca> for both Canada and the US.
 
 =head1 VERSION
 

@@ -53,7 +53,6 @@ WriteMakefile(
 	PREREQ_PM => {
 		'Encode' => 0,
 		'JSON::MaybeXS' => 0,
-		'HTTP::Request' => 0,
 		'LWP::UserAgent' => 0,
 		'LWP::Protocol::https' => 0,
 		'URI' => 0,
