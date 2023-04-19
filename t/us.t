@@ -16,7 +16,7 @@ US: {
 			use_ok('Test::LWP::UserAgent');
 		} else {
 			diag('On-line tests have been disabled');
-			skip('On-line tests have been disabled', 17);
+			skip('On-line tests have been disabled', 15);
 		}
 
 		my $geocoder = new_ok('Geo::Coder::CA');
