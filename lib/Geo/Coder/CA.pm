@@ -93,7 +93,7 @@ sub geocode {
 	}
 
 	my $location = $param{location};
-	if(!defined($location)) {
+	if((!defined($location)) || (length($location) == 0)) {
 		Carp::croak('Usage: geocode(location => $location)');
 		return;
 	}

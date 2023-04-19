@@ -5,6 +5,9 @@ Revision history for Geo-Coder-CA
 	geocoder.ca is now HTTPS
 	Changed croak to carp on API failure
 	Remove unused modules
+	Work around for https://github.com/nigelhorne/Geo-Coder-CA/issues/61
+		which is a problem with does_carp_that_matches() in Test::Carp
+		which I often have problems with
 
 0.13	Fri Oct 21 10:04:43 EDT 2022
 	Fix RT#141487 (SREZIC)
