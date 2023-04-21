@@ -11,7 +11,7 @@ Geo::Coder::CA - Provides a Geo-Coding functionality using [https://geocoder.ca]
 
 # VERSION
 
-Version 0.13
+Version 0.14
 
 # SYNOPSIS
 

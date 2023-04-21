@@ -1,6 +1,6 @@
 Revision history for Geo-Coder-CA
 
-0.14
+0.14	Fri Apr 21 13:49:22 EDT 2023
 	Calling new on an object now returns a clone rather than setting the defaults in the new object
 	geocoder.ca is now HTTPS
 	Changed croak to carp on API failure
