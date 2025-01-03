@@ -1,5 +1,8 @@
 Revision history for Geo-Coder-CA
 
+0.15
+	geocode(): croak when input is just a set of numbers
+
 0.14	Fri Apr 21 13:49:22 EDT 2023
 	Calling new on an object now returns a clone rather than setting the defaults in the new object
 	geocoder.ca is now HTTPS

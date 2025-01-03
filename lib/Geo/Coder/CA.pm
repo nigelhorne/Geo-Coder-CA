@@ -79,22 +79,28 @@ sub new {
 
 sub geocode {
 	my $self = shift;
-	my %param;
+	my %params;
 
 	if(ref($_[0]) eq 'HASH') {
-		%param = %{$_[0]};
+		%params = %{$_[0]};
 	} elsif(ref($_[0])) {
 		Carp::croak('Usage: geocode(location => $location)');
 		return;
 	} elsif(@_ % 2 == 0) {
-		%param = @_;
+		%params = @_;
 	} else {
-		$param{location} = shift;
+		$params{location} = shift;
 	}
 
-	my $location = $param{location};
+	my $location = $params{location};
 	if((!defined($location)) || (length($location) == 0)) {
 		Carp::croak('Usage: geocode(location => $location)');
+		return;
+	}
+
+	# Fail when the input is just a set of numbers
+	if($params{'location'} !~ /\D/) {
+		Carp::croak('Usage: ', __PACKAGE__, ": invalid input to geocode(), $params{location}");
 		return;
 	}
 
@@ -180,15 +186,15 @@ Similar to geocode except it expects a latitude/longitude parameter.
 
 sub reverse_geocode {
 	my $self = shift;
+	my %params;
 
-	my %param;
-	if (@_ % 2 == 0) {
-		%param = @_;
+	if((@_ % 2) == 0) {
+		%params = @_;
 	} else {
-		$param{latlng} = shift;
+		$params{latlng} = shift;
 	}
 
-	my $latlng = $param{latlng}
+	my $latlng = $params{latlng}
 		or Carp::croak('Usage: reverse_geocode(latlng => $latlng)');
 
 	return $self->geocode(location => $latlng, reverse => 1);
