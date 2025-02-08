@@ -13,7 +13,7 @@ Geo::Coder::CA - Provides a Geo-Coding functionality using [https://geocoder.ca]
 
 # VERSION
 
-Version 0.14
+Version 0.15
 
 # SYNOPSIS
 
