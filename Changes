@@ -1,6 +1,6 @@
 Revision history for Geo-Coder-CA
 
-0.15
+0.15	Sat Feb  8 08:23:11 EST 2025
 	geocode(): croak when input is just a set of numbers
 	Use Test::Needs
 	Use Test::DescribeMe to simplify tests
