@@ -74,7 +74,7 @@ You can also run this module from the command line:
 
 Nigel Horne, `<njh@bandsman.co.uk>`
 
-Based on [Geo::Coder::Googleplaces](https://metacpan.org/pod/Geo%3A%3ACoder%3A%3AGoogleplaces).
+Based on [Geo::Coder::GooglePlaces](https://metacpan.org/pod/Geo%3A%3ACoder%3A%3AGooglePlaces).
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
