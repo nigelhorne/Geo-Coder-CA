@@ -115,8 +115,8 @@ sub build
 
 	my $geocoder = eval { $MODULE->new(ua => $ua, host => 'localhost', apiKey => 'test') };
 	if(!$geocoder) {
-		# Geo::Coder::DataScienceToolkit->new() takes no arguments, so anything
-		# that rejects them gets a bare object and the agent put in directly.
+		# Not every module's constructor takes the same arguments, so one that
+		# rejects them gets a bare object and the agent put in directly.
 		$geocoder = eval { $MODULE->new() };
 		$geocoder->{'ua'} = $ua if $geocoder;
 	}

@@ -13,7 +13,7 @@ Geo::Coder::CA - Provides a Geo-Coding functionality using [https://geocoder.ca]
 
 ## Version
 
-Version 0.15
+Version 0.16
 
 ## Synopsis
 
@@ -108,6 +108,6 @@ Should be called Geo::Coder::NA for North America.
 
 ## License and Copyright
 
-Copyright 2017-2025 Nigel Horne.
+Copyright 2017-2026 Nigel Horne.
 
 This program is released under the following licence: GPL2
